@@ -3,7 +3,7 @@ import React from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
-const App = () => {
+const App = (props) => {
   const expenses = [
     {
       id: 'e1',
@@ -26,16 +26,14 @@ const App = () => {
     },
   ];
 
-  // return React.createElement(
-  //   'div',
-  //   {},
-  //   React.createElement('h2', {}, "Let's get started!"),
-  //   React.createElement(Expenses, { items: expenses })
-  // );
+  function addExpenseHandler(expense) {
+    console.log('In app.js')
+    console.log(expense)
+  }
 
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense = {addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
